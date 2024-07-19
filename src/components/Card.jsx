@@ -1,6 +1,6 @@
 const Card = ({ data }) => {
   return (
-    <div className="grid grid-cols-4 gap-8 gap-y-8 justify-evenly md:grid-cols-3 sm:grid-cols-1">
+    <div className="grid grid-cols-4 gap-8 gap-y-8 justify-evenly md:grid-cols-3 sm:grid-cols-1 grid-auto-rows-1fr">
       {data.map((item, i) => {
         return (
           // <div key={i} className="m-4">
@@ -18,7 +18,7 @@ const Card = ({ data }) => {
           >
             <a href="#">
               <img
-                className="rounded-t-lg w-full opacity-55 hover:opacity-100 transition-opacity duration-200 object-cover"
+                className="rounded-t-lg h-2/3 w-full opacity-55 hover:opacity-100 transition-opacity duration-200 object-cover"
                 src={item.links[0].href}
                 alt={item.data[0].title}
               />
