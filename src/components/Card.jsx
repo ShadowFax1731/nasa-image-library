@@ -1,6 +1,6 @@
 const Card = ({ data }) => {
   return (
-    <div className="grid grid-cols-4 gap-8 gap-y-8 justify-evenly md:grid-cols-3 sm:grid-cols-1 grid-auto-rows-1fr">
+    <div className="grid grid-cols-1 gap-8 gap-y-8 justify-evenly md:grid-cols-3 sm:grid-cols-2 grid-auto-rows-1fr px-4">
       {data.map((item, i) => {
         return (
           // <div key={i} className="m-4">
@@ -13,7 +13,7 @@ const Card = ({ data }) => {
           // </div>
 
           <div
-            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-200"
+            className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-200 md:py-4 py-6"
             key={i}
           >
             <a href="#">
@@ -25,7 +25,7 @@ const Card = ({ data }) => {
             </a>
             <div className="p-5">
               <a href="#">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 md:text-lg text-medium font-bold tracking-tight text-gray-900 dark:text-white">
                   {item.data[0].title}
                 </h5>
               </a>
@@ -34,7 +34,7 @@ const Card = ({ data }) => {
               </p> */}
               <a
                 href="#"
-                className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                className="inline-flex items-center px-3 py-2 w-full text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Read more
                 <svg

@@ -32,6 +32,7 @@ function App() {
 
   useEffect(() => {
     handleAPIRequest();
+    console.log(data.length);
   }, []);
 
   function handleFormSubmit(e) {
@@ -56,7 +57,7 @@ function App() {
             NASA Images and Videos Library
           </h1>
 
-          <div className="flex items-center max-w-sm mx-3">
+          <div className="flex items-center  mx-3">
             <label htmlFor="simple-search" className="sr-only">
               Search
             </label>
