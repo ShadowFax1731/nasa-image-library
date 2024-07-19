@@ -15,10 +15,11 @@ const Card = ({ data }) => {
           <div
             className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-200 md:py-4 py-6"
             key={i}
+            onClick={(e) => e.preventDefault()}
           >
             <a href="#">
               <img
-                className="rounded-t-lg h-2/3 w-full opacity-55 hover:opacity-100 transition-opacity duration-200 object-cover"
+                className="rounded-t-lg h-2/3 w-full opacity-100 lg:opacity-55 lg:hover:opacity-100 lg:transition-opacity lg:duration-200 object-cover"
                 src={item.links[0].href}
                 alt={item.data[0].title}
               />
@@ -34,6 +35,7 @@ const Card = ({ data }) => {
               </p> */}
               <a
                 href="#"
+                onClick={(e) => e.preventDefault()}
                 className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               >
                 Read more
