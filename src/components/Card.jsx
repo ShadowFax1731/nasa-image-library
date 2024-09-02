@@ -1,3 +1,5 @@
+import Keyword from "./Keyword";
+
 const Card = ({ item }) => {
   return (
     <div className="">
@@ -15,6 +17,13 @@ const Card = ({ item }) => {
           <h5 className="mb-2 md:text-lg text-medium font-bold tracking-tight text-gray-900 dark:text-white">
             {item.data[0].title}
           </h5>
+        </div>
+
+        <div>
+          {item.data[0].keywords.length > 0 &&
+            item.data[0].keywords.map((keyword, i) => (
+              <Keyword keyword={keyword} key={i} />
+            ))}
         </div>
       </div>
     </div>
