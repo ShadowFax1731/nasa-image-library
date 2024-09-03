@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
+import AssetDetails from "./components/AssetDetails";
 
 function App() {
   const [data, setData] = useState([]);
@@ -66,17 +68,25 @@ function App() {
   }
 
   return (
-    <>
-      <Home
-        handleChange={handleChange}
-        handleFormSubmit={handleFormSubmit}
-        onFilterChange={handleFilterChange}
-        data={data}
-        loading={loading}
-        query={query}
-        filters={filters}
-      />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              handleChange={handleChange}
+              handleFormSubmit={handleFormSubmit}
+              onFilterChange={handleFilterChange}
+              data={data}
+              loading={loading}
+              query={query}
+              filters={filters}
+            />
+          }
+        />
+        <Route path="/asset/:id" element={<AssetDetails />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
