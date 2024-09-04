@@ -26,7 +26,7 @@ const AssetDetails = () => {
   let sourceURL = test[0].href;
 
   return (
-    <div className="  container mx-auto p-4">
+    <div className=" bg-slate-800 container mx-auto p-4">
       {asset ? (
         <div className="flex flex-col">
           <div className="w-full md:w-1/2">
@@ -49,16 +49,16 @@ const AssetDetails = () => {
                 ))}
             </div>
             {center && (
-              <p className="text-gray-500 text-sm mt-2">Center: {center}</p>
+              <p className="text-white text-sm mt-2">Center: {center}</p>
             )}
             {date_created && (
-              <p className="text-gray-500 text-sm mt-2">
+              <p className="text-white text-sm mt-2">
                 Date Created: {new Date(date_created).toLocaleDateString()}
               </p>
             )}
             <br />
             {description && (
-              <p className="mt-6 text-gray-700 text-base leading-relaxed">
+              <p className="mt-6 text-white text-base leading-relaxed">
                 {description}
               </p>
             )}
