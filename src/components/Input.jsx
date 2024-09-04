@@ -12,7 +12,7 @@ const Input = ({
 
   return (
     <div className="flex flex-col justify-center gap-4 items-center ">
-      <h1 className="text-blue-600 text-3xl text-center">
+      <h1 className="text-blue-600 text-3xl text-center font-bold">
         NASA Images and Videos Library
       </h1>
 

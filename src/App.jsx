@@ -37,7 +37,6 @@ function App() {
       `https://images-api.nasa.gov/search?q=${query}&media_type=${filterParams}`
     );
     let response = res.data.collection.items;
-    console.log(response);
     setData(response);
 
     setLoading(false);
