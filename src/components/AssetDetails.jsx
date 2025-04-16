@@ -1,5 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
 import Keyword from "./Keyword";
+import DOMPurify from "dompurify";
 
 const AssetDetails = () => {
   const { id } = useParams();
@@ -20,7 +21,7 @@ const AssetDetails = () => {
   }
 
   const test = asset.collection.items.filter((link) =>
-    link.href.includes(extension)
+    link.href.includes(extension),
   );
 
   let sourceURL = test[0].href;
@@ -58,10 +59,14 @@ const AssetDetails = () => {
             )}
             <br />
             {description && (
-              <p className="mt-6 text-white text-base leading-relaxed">
-                {description}
-              </p>
+              <div
+                className="mt-6 prose prose-invert max-w-none text-white"
+                dangerouslySetInnerHTML={{
+                  __html: DOMPurify.sanitize(description),
+                }}
+              />
             )}
+
             <br />
           </div>
         </div>

@@ -5,22 +5,19 @@ const Card = ({ item }) => {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-
+  async function handleClick(e) {
+    e.preventDefault();
+    setLoading(true);
+    const res = await fetch(
+      `https://images-api.nasa.gov/asset/${item.data[0].nasa_id}`,
+    );
+    const asset = await res.json();
+    navigate(`/asset/${item.data[0].nasa_id}`, {
+      state: { asset: asset, item: item },
+    });
+  }
   return (
-    <div
-      className=""
-      onClick={async (e) => {
-        e.preventDefault();
-        setLoading(true);
-        const res = await fetch(
-          `https://images-api.nasa.gov/asset/${item.data[0].nasa_id}`
-        );
-        const asset = await res.json();
-        navigate(`/asset/${item.data[0].nasa_id}`, {
-          state: { asset: asset, item: item },
-        });
-      }}
-    >
+    <div className="" onClick={handleClick}>
       <div className="flex flex-col items-center justify-center h-80 p-4 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 hover:scale-105 duration-200 md:py-4 py-6 cursor-pointer">
         {item.data[0].media_type === "image" && (
           <>
@@ -58,7 +55,7 @@ const Card = ({ item }) => {
           </div>
         )}
 
-        {/* 
+        {/*
         <div className="flex flex-wrap gap-2 mb-4">
           {item.data[0].keywords.length > 0 &&
             item.data[0].keywords.map((keyword, i) => (
