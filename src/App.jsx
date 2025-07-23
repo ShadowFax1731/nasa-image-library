@@ -34,11 +34,11 @@ function App() {
       activeFilters.length > 0 ? activeFilters.join(",") : "image";
 
     const res = await axios.get(
-      `https://images-api.nasa.gov/search?q=${query}&media_type=${filterParams}`
+      `https://images-api.nasa.gov/search?q=${query}&media_type=${filterParams}`,
     );
     let response = res.data.collection.items;
     setData(response);
-
+    console.log(activeFilters);
     setLoading(false);
   }
 
@@ -47,11 +47,17 @@ function App() {
   }, [filters]);
 
   function handleFilterChange(name, isChecked) {
+    if (!isChecked) return;
     setLoading(true);
-    setFilters((prevFilters) => ({
-      ...prevFilters,
-      [name]: isChecked,
-    }));
+
+    const newFilters = {
+      image: false,
+      audio: false,
+      video: false,
+      [name]: true,
+    };
+
+    setFilters(newFilters);
     setLoading(false);
   }
 
