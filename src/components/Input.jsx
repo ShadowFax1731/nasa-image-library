@@ -11,10 +11,9 @@ const Input = () => {
   return (
     <>
       <div className="flex flex-col justify-center gap-4 items-center ">
-        <h1 className="text-blue-600 text-3xl text-center font-bold">
-          NASA Images and Videos Library
+        <h1 className="font-[Orbitron] mt-8 text-center text-4xl md:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 animate-gradient">
+          NASA Image & Video Library Explorer 🚀
         </h1>
-
         <div className="w-full max-w-sm min-w-[200px] relative mt-4">
           <label className="block mb-1 text-sm text-slate-800">Query:</label>
           <div className="relative">
