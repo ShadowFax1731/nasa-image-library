@@ -1,13 +1,11 @@
-const Input = ({
-  handleChange,
-  handleFormSubmit,
-  onFilterChange,
-  filters,
-  loading,
-}) => {
+import { useNasa } from "../contexts/NasaContext";
+
+const Input = () => {
+  const { handleChange, handleFormSubmit, handleFilterChange, filters } =
+    useNasa();
   function handleCheckboxChange(e) {
     const { name, checked } = e.target;
-    onFilterChange(name, checked);
+    handleFilterChange(name, checked);
   }
 
   return (
@@ -22,7 +20,7 @@ const Input = ({
           <div className="relative">
             <form action="" onSubmit={handleFormSubmit}>
               <input
-                className="w-full pr-20 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
+                className="w-full pr-20 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-white text-sm border border-slate-200 rounded transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md"
                 placeholder="Enter your text"
                 onChange={(e) => handleChange(e)}
               />

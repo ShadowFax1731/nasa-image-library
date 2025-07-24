@@ -1,25 +1,13 @@
 import Loading from "./Loading";
 import Input from "./Input";
 import Grid from "./Grid";
+import { useNasa } from "../contexts/NasaContext";
 
-const Home = ({
-  loading,
-  handleChange,
-  handleFormSubmit,
-  onFilterChange,
-  data,
-  query,
-  filters,
-}) => {
+const Home = () => {
+  const { loading, data } = useNasa();
   return (
     <div className="flex flex-col bg-slate-800">
-      <Input
-        handleChange={handleChange}
-        handleFormSubmit={handleFormSubmit}
-        onFilterChange={onFilterChange}
-        query={query}
-        filters={filters}
-      />
+      <Input />
       {loading ? <Loading /> : <Grid data={data} />}
     </div>
   );
