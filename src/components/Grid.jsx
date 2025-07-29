@@ -2,12 +2,11 @@ import Card from "./Card";
 
 const Grid = ({ data }) => {
   return (
-    <div
-      className="my-10 mx-auto grid grid-auto-rows-1fr grid-cols-1 gap-8 gap-y-8 justify-evenly
-      md:grid-cols-3 sm:grid-cols-2 px-4"
-    >
+    <div className="columns-1 sm:columns-2 md:columns-3 gap-4 px-4 space-y-4 my-10">
       {data.map((item, i) => (
-        <Card item={item} key={i} />
+        <div key={i} className="break-inside-avoid">
+          <Card item={item} />
+        </div>
       ))}
     </div>
   );

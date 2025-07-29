@@ -27,51 +27,74 @@ const AssetDetails = () => {
   let sourceURL = test[0].href;
 
   return (
-    <div className=" bg-slate-800 container mx-auto p-4">
+    <div className="w-full mx-auto px-6 py-10 bg-gradient-to-r from-blue-800 to-red-700 min-h-screen">
       {asset ? (
-        <div className="flex flex-col">
-          <div className="w-full md:w-1/2">
+        <div className="flex flex-col md:flex-row items-start gap-8 bg-black/30 p-6 rounded-2xl shadow-2xl backdrop-blur-md border border-white/10">
+          {/* Media Section */}
+          <div className="w-full md:w-1/2 flex justify-center">
             {media_type === "image" && (
               <img
                 src={sourceURL}
                 alt={title}
-                className="object-cover w-full h-64 md:h-auto rounded-lg shadow-lg"
+                className="rounded-xl max-h-[450px] w-full object-contain shadow-md"
               />
             )}
-            {media_type === "video" && <video src={sourceURL} controls />}
-            {media_type === "audio" && <audio src={sourceURL} controls />}
+            {media_type === "video" && (
+              <video
+                src={sourceURL}
+                controls
+                className="rounded-xl max-h-[450px] w-full object-contain shadow-md"
+              />
+            )}
+            {media_type === "audio" && (
+              <audio src={sourceURL} controls className="w-full" />
+            )}
           </div>
-          <div className="w-full md:w-1/2 mt-4 md:mt-0 md:pl-6">
-            <h1 className="text-blue-600 text-3xl font-bold">{title}</h1>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {keywords.length > 0 &&
-                keywords.map((keyword, i) => (
+
+          {/* Info Section */}
+          <div className="w-full md:w-1/2 text-white">
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text">
+              {title}
+            </h1>
+
+            {/* Keywords */}
+            {keywords.length > 0 && (
+              <div className="mt-4 flex flex-wrap gap-2">
+                {keywords.map((keyword, i) => (
                   <Keyword key={i} keyword={keyword} />
                 ))}
-            </div>
-            {center && (
-              <p className="text-white text-sm mt-2">Center: {center}</p>
+              </div>
             )}
-            {date_created && (
-              <p className="text-white text-sm mt-2">
-                Date Created: {new Date(date_created).toLocaleDateString()}
+
+            {/* Metadata */}
+            {center && (
+              <p className="text-sm text-gray-200 mt-4">
+                <span className="font-semibold text-white">Center:</span>{" "}
+                {center}
               </p>
             )}
-            <br />
+            {date_created && (
+              <p className="text-sm text-gray-200 mt-1">
+                <span className="font-semibold text-white">Date Created:</span>{" "}
+                {new Date(date_created).toLocaleDateString()}
+              </p>
+            )}
+
+            {/* Description */}
             {description && (
               <div
-                className="mt-6 prose prose-invert max-w-none text-white"
+                className="mt-6 prose prose-invert max-w-none text-white text-sm leading-relaxed"
                 dangerouslySetInnerHTML={{
                   __html: DOMPurify.sanitize(description),
                 }}
               />
             )}
-
-            <br />
           </div>
         </div>
       ) : (
-        <p>404: No data available.</p>
+        <p className="text-white text-center text-xl font-semibold">
+          404: No data available.
+        </p>
       )}
     </div>
   );
