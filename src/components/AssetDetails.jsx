@@ -5,7 +5,7 @@ import DOMPurify from "dompurify";
 const AssetDetails = () => {
   const { id } = useParams();
   const location = useLocation();
-  const { asset, item } = location.state || {}; // Fallback in case no state is passed
+  const { asset, item, loading } = location.state || {}; // Fallback in case no state is passed
 
   const { title, media_type, keywords, center, description, date_created } =
     item.data[0];
