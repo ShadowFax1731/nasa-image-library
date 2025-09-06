@@ -44,6 +44,7 @@
 }
 
 .animate-gradient-text {
+    background-image: linear-gradient(to right, #22d3ee, #14b8a6, #a3e635);
     background-size: 200% 200%;
     animation: gradient-flow 5s ease infinite;
 }

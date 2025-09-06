@@ -12,11 +12,12 @@ const Input = () => {
     <>
       <div className="flex flex-col justify-center gap-4 items-center ">
         <h1
-          className="font-[Orbitron] mt-8 text-center text-4xl md:text-5xl font-extrabold tracking-tight text-transparent
-  bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-400 animate-gradient-text"
+          className="font-[Orbitron] mt-8 text-center text-4xl md:text-5xl font-extrabold tracking-tight
+             bg-gradient-to-r from-yellow-300 via-pink-400 to-purple-400 bg-clip-text text-transparent animate-gradient-text"
         >
           NASA Image & Video Library Explorer 🚀
         </h1>
+
         <div className="w-full max-w-sm min-w-[200px] relative mt-4">
           <label className="block mb-1 text-sm text-white">Query:</label>
           <div className="relative">
